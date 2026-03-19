@@ -1,3 +1,16 @@
+/* ===== Accessibility ===== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ===== Reset & Base ===== */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -330,6 +343,190 @@ nav {
   font-weight: 700;
 }
 
+/* ===== Register form ===== */
+.register-block {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(79,142,247,0.15);
+}
+
+.register-block h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+
+.register-block > p {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+
+.register-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.register-input {
+  flex: 1;
+  min-width: 220px;
+  padding: 14px 20px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(79,142,247,0.25);
+  font-size: 0.95rem;
+  background: rgba(255,255,255,0.9);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.register-input:focus {
+  border-color: var(--primary);
+}
+
+.register-note {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+/* ===== Pricing / Membership ===== */
+.pricing {
+  padding: 100px 24px;
+  background: var(--bg);
+}
+
+.pricing-philosophy {
+  max-width: 700px;
+  margin: 0 auto 64px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  background: rgba(79,142,247,0.06);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 20px 28px;
+  text-align: left;
+}
+
+.pricing-philosophy strong {
+  color: var(--primary);
+}
+
+.pricing-grid {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  align-items: start;
+}
+
+.pricing-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(79,142,247,0.07);
+  position: relative;
+}
+
+.pricing-card--featured {
+  border: 2px solid var(--primary);
+  box-shadow: 0 8px 40px rgba(79,142,247,0.18);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 18px;
+  border-radius: 100px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.pricing-tier {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.pricing-price {
+  margin-bottom: 28px;
+}
+
+.price-amount {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -1.5px;
+}
+
+.price-period {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-left: 6px;
+}
+
+.pricing-features {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.pricing-features li {
+  padding: 8px 0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(79,142,247,0.07);
+  color: var(--text);
+}
+
+.pricing-features li:last-child {
+  border-bottom: none;
+}
+
+.pricing-feature--locked {
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+.pricing-cta {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ===== Premium feature card ===== */
+.feature-card--premium {
+  border: 1px solid rgba(245,158,66,0.25);
+  background: linear-gradient(135deg, #fff 80%, #FFF7ED 100%);
+}
+
+.feature-premium-badge {
+  display: inline-block;
+  background: rgba(245,158,66,0.15);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.3px;
+  margin-bottom: 12px;
+}
+
 /* ===== Footer ===== */
 footer {
   padding: 40px 24px;
@@ -359,7 +556,21 @@ footer a:hover {
   }
 
   .features,
-  .download {
+  .download,
+  .pricing {
     padding: 72px 20px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .register-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .register-input {
+    min-width: 0;
   }
 }
