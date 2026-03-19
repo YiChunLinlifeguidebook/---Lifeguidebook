@@ -17,6 +17,8 @@
       <a href="#" class="nav-logo">📖 Lifeguidebook</a>
       <ul class="nav-links">
         <li><a href="#features">功能</a></li>
+        <li><a href="#pricing">會員方案</a></li>
+        <li><a href="#register">立即註冊</a></li>
         <li><a href="#download">下載</a></li>
       </ul>
     </div>
@@ -87,6 +89,61 @@
         <h3>跨平台同步</h3>
         <p>在 iPhone、Android 或任何裝置上無縫切換，隨時隨地取用你的資料。</p>
       </div>
+      <div class="feature-card feature-card--premium">
+        <span class="feature-premium-badge">✨ 付費功能</span>
+        <div class="feature-icon">🎨</div>
+        <h3>命理顏色安</h3>
+        <p>根據你的生辰八字與命理分析，推算個人專屬的幸運顏色，讓日常穿搭與空間佈置充滿正能量。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing / Membership -->
+  <section class="pricing" id="pricing">
+    <div class="section-header">
+      <h2>會員方案</h2>
+      <p>選擇適合你的方案，開啟更美好的人生旅程。</p>
+    </div>
+    <div class="pricing-philosophy">
+      <p>我們相信每個人都值得擁有一本屬於自己的人生嚮導。<strong>基本功能永久免費</strong>，付費方案則解鎖更深度的命理分析與個人化建議，讓你的人生規劃更加精準。</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">免費版</div>
+        <div class="pricing-price">
+          <span class="price-amount">免費</span>
+          <span class="price-period">永久免費</span>
+        </div>
+        <ul class="pricing-features">
+          <li>✅ 人生規劃（無限目標）</li>
+          <li>✅ 生命日記（每日記錄）</li>
+          <li>✅ 成長追蹤（基本圖表）</li>
+          <li>✅ 智慧提醒</li>
+          <li>✅ 跨平台同步</li>
+          <li>✅ 隱私優先加密</li>
+          <li class="pricing-feature--locked">🔒 命理顏色安</li>
+          <li class="pricing-feature--locked">🔒 AI 個人化建議</li>
+          <li class="pricing-feature--locked">🔒 深度命理分析</li>
+        </ul>
+        <a href="#register" class="btn btn-outline pricing-cta">免費開始</a>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-badge">最受歡迎</div>
+        <div class="pricing-tier">付費版</div>
+        <div class="pricing-price">
+          <span class="price-amount">$99</span>
+          <span class="price-period">/ 月（台幣）</span>
+        </div>
+        <ul class="pricing-features">
+          <li>✅ 所有免費功能</li>
+          <li>✅ <strong>命理顏色安</strong>（個人幸運色分析）</li>
+          <li>✅ AI 個人化人生建議</li>
+          <li>✅ 深度八字命理分析</li>
+          <li>✅ 專屬客服支援</li>
+          <li>✅ 搶先體驗新功能</li>
+        </ul>
+        <a href="#register" class="btn btn-primary pricing-cta">立即升級</a>
+      </div>
     </div>
   </section>
 
@@ -115,6 +172,18 @@
           </span>
         </a>
       </div>
+
+      <!-- Early-access registration -->
+      <div class="register-block" id="register">
+        <h3>搶先註冊，優先體驗</h3>
+        <p>留下你的 Email，App 上線第一時間通知你，並享有早鳥會員優惠。</p>
+        <form class="register-form" id="registerForm">
+          <label for="registerEmail" class="visually-hidden">Email 地址</label>
+          <input type="email" id="registerEmail" class="register-input" placeholder="請輸入你的 Email" required aria-label="Email 地址" />
+          <button type="submit" class="btn btn-primary">立即註冊</button>
+        </form>
+        <p class="register-note">我們尊重你的隱私，不會發送垃圾郵件。</p>
+      </div>
     </div>
   </section>
 
@@ -122,6 +191,17 @@
   <footer>
     <p>&copy; 2026 Lifeguidebook. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const input = this.querySelector('.register-input');
+      const btn = this.querySelector('button[type="submit"]');
+      btn.textContent = '✅ 已收到！感謝你的登記';
+      btn.disabled = true;
+      input.disabled = true;
+    });
+  </script>
 
 </body>
 </html>
