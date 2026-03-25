@@ -284,6 +284,63 @@ nav {
   margin-bottom: 40px;
 }
 
+.token-gate {
+  max-width: 560px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+
+.token-gate label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.token-gate input {
+  width: 100%;
+  border: 1px solid rgba(79,142,247,0.22);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.token-gate input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79,142,247,0.16);
+}
+
+.token-response {
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  background: #eef4ff;
+  color: #1f4eaf;
+}
+
+.token-response.is-success {
+  background: #e9f9ef;
+  color: #1d7f42;
+}
+
+.token-response.is-error {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+.token-response.success {
+  background: #e9f9ef;
+  color: #1d7f42;
+}
+
+.token-response.error {
+  background: #fff0f0;
+  color: #b42318;
+}
+
 .store-badges {
   display: flex;
   flex-wrap: wrap;

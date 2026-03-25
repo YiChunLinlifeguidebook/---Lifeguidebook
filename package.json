@@ -1,0 +1,9 @@
+{
+  "name": "lifeguidebook-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lifeguidebook product landing page with token gate validation tests.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
