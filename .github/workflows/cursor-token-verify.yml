@@ -1,0 +1,30 @@
+# 強制 Token 校對：確保分支任務對應的 token 存在且可被 CI 回傳驗證（避免「已讀不回」無法稽核）。
+name: Cursor token verify
+
+on:
+  push:
+    branches:
+      - 'cursor/**'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  verify-token:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify cursor-token.json and echo token (回傳測試)
+        run: |
+          set -euo pipefail
+          test -f cursor-token.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path("cursor-token.json").read_text(encoding="utf-8"))
+          assert data.get("token") == "68e5", "token mismatch"
+          PY
+          echo "CURSOR_TOKEN_VERIFIED=68e5"
+          echo "::notice title=Cursor token::CURSOR_TOKEN_VERIFIED=68e5"

@@ -1,0 +1,5 @@
+{
+  "token": "68e5",
+  "purpose": "cursor-agent-handshake",
+  "verified_by": "repository contents + CI"
+}
