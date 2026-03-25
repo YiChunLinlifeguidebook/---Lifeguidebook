@@ -12,8 +12,22 @@
 ```
 ├── index.html   # 主頁面（Hero、功能介紹、下載區塊）
 ├── styles.css   # 全站樣式
+├── Dockerfile   # 以 nginx 提供靜態檔（可選：VPS / 自架主機）
+├── docker-compose.yml
 └── README.md    # 本文件
 ```
+
+---
+
+## 🖥️ VPS（Docker）部署
+
+若要在自有伺服器上以容器執行：
+
+```bash
+docker compose up -d --build
+```
+
+預設會將網站對外於 **http://伺服器IP:8080**（可在 `docker-compose.yml` 修改對應埠）。
 
 ---
 
