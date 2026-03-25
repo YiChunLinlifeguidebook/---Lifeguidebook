@@ -14,8 +14,26 @@
 ├── styles.css   # 全站樣式
 ├── Dockerfile   # 以 nginx 提供靜態檔（可選：VPS / 自架主機）
 ├── docker-compose.yml
+├── .env.example # LINE 憑證變數名稱範本（勿填入真值後提交）
 └── README.md    # 本文件
 ```
+
+---
+
+## 🔑 還原 LINE 憑證（本機 / VPS）
+
+此 repo **不** 存放真實密鑰。若你曾在別台機器或備份裡保存過憑證，請在本機專案根目錄還原如下：
+
+1. 複製範本並命名為 `.env`（此檔已列入 `.gitignore`，不會被提交）：
+   ```bash
+   cp .env.example .env
+   ```
+2. 用編輯器開啟 `.env`，填入：
+   - **Channel secret** → `LINE_CHANNEL_SECRET`
+   - **Channel access token**（長期）→ `LINE_CHANNEL_ACCESS_TOKEN`
+3. 若憑證遺失，請到 [LINE Developers Console](https://developers.line.biz/) → 你的 **Messaging API** Channel → **Messaging API** 分頁重新發行 **Channel access token**，並確認 **Channel secret** 與 Webhook 設定。
+
+之後當 LINE Bot 服務整合進 Docker 時，會以 `env_file: .env` 等方式讀取上述變數（實作時請勿把密鑰寫進程式碼或映像檔）。
 
 ---
 

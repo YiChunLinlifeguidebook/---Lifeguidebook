@@ -1,3 +1,7 @@
+# LINE Bot 服務若需讀取憑證，可在該服務下加入：
+#   env_file: .env
+# 並確保專案根目錄有從 .env.example 複製並填好的 .env（勿提交 Git）。
+
 services:
   web:
     build: .
