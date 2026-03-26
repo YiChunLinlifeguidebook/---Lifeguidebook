@@ -1,0 +1,45 @@
+{
+  "lockId": "20260326-T05",
+  "system": "Chun-Standard V1.0",
+  "createdAt": "2026-03-26",
+  "workspace": "/workspace",
+  "logicLock": {
+    "mcpConfig": ".vscode/mcp.json",
+    "copilotInstructions": ".github/copilot-instructions.md",
+    "agentDefinition": ".github/agents/chun-standard-agent.md",
+    "taskDefinition": ".vscode/tasks.json",
+    "firebaseStudioConfig": ".idx/dev.nix"
+  },
+  "tracks": [
+    {
+      "id": "T01",
+      "name": "editor-ai",
+      "status": "locked"
+    },
+    {
+      "id": "T02",
+      "name": "relay-path-mapping",
+      "status": "locked"
+    },
+    {
+      "id": "T03",
+      "name": "extension-automation",
+      "status": "locked"
+    },
+    {
+      "id": "T04",
+      "name": "platform-research",
+      "status": "locked"
+    },
+    {
+      "id": "T05",
+      "name": "mcp-governance",
+      "status": "locked"
+    }
+  ],
+  "notes": [
+    "All deliverables must use YYYYMMDD-Tnn identifiers.",
+    "Remote SSH is recommended in VS Code and mapped to an OpenVSX-compatible alternative for Firebase Studio.",
+    "External folders are linked through env-configurable relay targets to avoid committing machine-specific absolute paths."
+  ]
+}

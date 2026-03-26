@@ -1,0 +1,13 @@
+{
+  // 20260326-002 Chun-Standard V1.0 extension baseline.
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.debugpy",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-ssh"
+  ],
+  "unwantedRecommendations": []
+}

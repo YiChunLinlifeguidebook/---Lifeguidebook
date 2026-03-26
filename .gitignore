@@ -1,0 +1,7 @@
+.venv/
+.relay/
+.env.relay
+.env.local
+__pycache__/
+.pytest_cache/
+.idx/dev.local.nix

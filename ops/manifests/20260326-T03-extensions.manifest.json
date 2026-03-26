@@ -1,0 +1,59 @@
+{
+  "manifestVersion": "20260326-001",
+  "label": "20260326-T03",
+  "tracks": {
+    "track01_platformResearch": {
+      "items": [
+        "termux.termux-api",
+        "termux.termux-x11",
+        "rikka.shizuku",
+        "iamr0s.dhizuku",
+        "firebase.studio"
+      ]
+    },
+    "track02_workspaceAutomation": {
+      "items": [
+        "ms-python.python",
+        "ms-python.debugpy",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-ssh"
+      ]
+    },
+    "track03_firebaseStudio": {
+      "openVsxAutoInstall": [
+        "ms-python.python",
+        "ms-python.debugpy",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-azuretools.vscode-docker",
+        "jeanp413.open-remote-ssh"
+      ],
+      "localOnlyRecommendation": [
+        "ms-vscode-remote.remote-ssh"
+      ]
+    },
+    "track04_aiGovernance": {
+      "items": [
+        "chat.mcp.access",
+        "chat.mcp.autoStart",
+        "github.copilot.chat.codeGeneration.useInstructionFiles",
+        "github.copilot.chat.organizationInstructions.enabled",
+        "github.copilot.chat.organizationCustomAgents.enabled"
+      ]
+    },
+    "track05_mcpLock": {
+      "items": [
+        ".vscode/mcp.json",
+        ".mcp/20260326-T05-lock.json"
+      ]
+    }
+  },
+  "notes": [
+    "Remote-SSH is recommended directly for VS Code.",
+    "Firebase Studio/OpenVSX does not expose the Microsoft Remote-SSH package in the same way, so an OpenVSX-compatible fallback is declared there."
+  ]
+}

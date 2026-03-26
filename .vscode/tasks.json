@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "20260326-T01 Chun-Standard: Bootstrap Python vEnv + debugpy",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/bootstrap_python_env.sh",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "20260326-T02 Chun-Standard: Install VS Code extension bundle",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/install_vscode_extensions.sh",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "20260326-T03 Chun-Standard: Refresh relay path mapping",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/setup_relay_paths.sh",
+      "args": [
+        "${workspaceFolder}/.env.relay"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "20260326-T04 Git 轉接站 (Relay Repo): One-click Push",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/git_relay_push.sh",
+      "args": [
+        "${input:relayTag}",
+        "${input:relayMessage}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "20260326-T05 Chun-Standard: Full workspace sync",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "20260326-T01 Chun-Standard: Bootstrap Python vEnv + debugpy",
+        "20260326-T02 Chun-Standard: Install VS Code extension bundle",
+        "20260326-T03 Chun-Standard: Refresh relay path mapping"
+      ],
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "relayTag",
+      "type": "promptString",
+      "description": "Relay Repo date-tag, for example 20260326-T04",
+      "default": "20260326-T04"
+    },
+    {
+      "id": "relayMessage",
+      "type": "promptString",
+      "description": "Relay Repo commit message",
+      "default": "chore(env): align Chun-Standard workspace"
+    }
+  ]
+}

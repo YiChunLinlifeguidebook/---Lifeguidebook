@@ -1,0 +1,29 @@
+{
+  "manifestId": "20260326-T02",
+  "standard": "Chun-Standard V1.0",
+  "tracks": [
+    "T1-editor",
+    "T2-runtime",
+    "T3-relay",
+    "T4-research",
+    "T5-lock"
+  ],
+  "pathMappings": {
+    "m365DigestPool": {
+      "envVar": "M365_DIGEST_SOURCE",
+      "defaultSource": "${workspaceFolder}/_external/m365-digest-pool",
+      "relayTarget": "${workspaceFolder}/.relay/m365-current",
+      "description": "Microsoft 365 data digestion relay target."
+    },
+    "obsidianLogicVault": {
+      "envVar": "OBSIDIAN_LOGIC_SOURCE",
+      "defaultSource": "${workspaceFolder}/_external/obsidian-logic-vault",
+      "relayTarget": "${workspaceFolder}/.relay/obsidian-current",
+      "description": "Obsidian logic vault relay target."
+    }
+  },
+  "naming": {
+    "dateFormat": "YYYYMMDD",
+    "tagFormat": "YYYYMMDD-TNN"
+  }
+}
