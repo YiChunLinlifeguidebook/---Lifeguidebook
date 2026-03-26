@@ -1,0 +1,40 @@
+{
+  "// Chun-Standard": "V1.0 — workspace defaults (20250326, CS-20250326-001)",
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.enable": true,
+  "eslint.validate": ["javascript", "typescript", "html"],
+
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.organizationInstructions.enabled": true,
+  "github.copilot.chat.organizationCustomAgents.enabled": true,
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "chat.useAgentsMdFile": true,
+  "chat.mcp.access": true,
+  "chat.mcp.discovery.enabled": true,
+  "chat.mcp.autoStart": "newAndOutdated",
+  "search.searchView.semanticSearchBehavior": "always",
+
+  "github.copilot.chat.additionalReadAccessFolders": [
+    "${env:CHUN_M365_DIGEST_POOL}",
+    "${env:CHUN_OBSIDIAN_LOGIC_RELAY}"
+  ]
+}
