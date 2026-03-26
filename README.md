@@ -12,10 +12,11 @@
 ```
 ├── index.html      # 產品官網
 ├── styles.css
-├── index.js        # LINE Bot（Express + /callback）
+├── src/index.ts    # LINE Bot（TypeScript + Express + /callback）
 ├── package.json
+├── tsconfig.json
 ├── Dockerfile      # 靜態網站（nginx）
-├── Dockerfile.bot  # LINE Bot（Node 20）
+├── Dockerfile.bot  # LINE Bot（多階段建置、執行 dist/index.js）
 ├── docker-compose.yml
 ├── .env.example
 └── README.md
@@ -63,6 +64,14 @@ docker compose up -d --build
 
 ```bash
 docker compose up -d --build bot
+```
+
+本機開發（需先 `cp .env.example .env` 並填入憑證）：
+
+```bash
+npm install
+npm run build
+npm start
 ```
 
 ---

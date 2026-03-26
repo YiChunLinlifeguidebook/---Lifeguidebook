@@ -3,3 +3,4 @@
 .env.*.local
 *.pem
 node_modules/
+dist/
