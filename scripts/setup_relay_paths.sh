@@ -14,8 +14,8 @@ if [[ -f "${ENV_FILE}" ]]; then
   source "${ENV_FILE}"
 fi
 
-M365_TARGET="${M365_TARGET:-${ROOT_DIR}/ops/manifests/20260326-T04-m365-digestion-pool}"
-OBSIDIAN_TARGET="${OBSIDIAN_TARGET:-${ROOT_DIR}/ops/manifests/20260326-T05-obsidian-logic-vault}"
+M365_TARGET="${M365_DIGEST_SOURCE:-${ROOT_DIR}/ops/relay/m365-digest-pool}"
+OBSIDIAN_TARGET="${OBSIDIAN_LOGIC_SOURCE:-${ROOT_DIR}/ops/relay/obsidian-logic-vault}"
 
 mkdir -p "${M365_TARGET}" "${OBSIDIAN_TARGET}"
 

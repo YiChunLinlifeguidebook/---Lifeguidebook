@@ -1,4 +1,5 @@
 .venv/
+.chun-tools/
 .relay/
 .env.relay
 .env.local
