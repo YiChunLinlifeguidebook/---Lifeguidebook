@@ -1,6 +1,7 @@
 import * as line from '@line/bot-sdk';
 import express, { Request, Response } from 'express';
 import { createConsoleLogger } from './modules/logger';
+import { screenWithLlamaGuardStub } from './modules/security';
 
 const log = createConsoleLogger('line-bot');
 
@@ -35,6 +36,15 @@ app.post('/callback', line.middleware(config as line.MiddlewareConfig), (req: Re
 async function handleEvent(event: line.WebhookEvent) {
   if (event.type !== 'message' || event.message.type !== 'text') {
     return Promise.resolve(null);
+  }
+
+  const guard = await screenWithLlamaGuardStub(event.message.text, log);
+  if (!guard.safe) {
+    log.warn('message.blocked_by_guard', { reason: guard.reason });
+    return client.replyMessage(event.replyToken, {
+      type: 'text',
+      text: '此訊息無法處理，請調整用語後再試。',
+    });
   }
 
   if (event.message.text === '12345') {

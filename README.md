@@ -18,6 +18,10 @@
 ├── src/modules/collectors/  # Wikipedia / 百度百科採集器
 ├── src/cli/collect-sample.ts  # 採集 CLI 範例
 ├── scripts/deploy-xiaoc.sh    # 一鍵 Docker 建置與啟動
+├── docs/google-meta-integration.md  # Google & Meta 跨域整合與合規說明
+├── legal/                     # Llama 授權放置說明、Built with Meta 標章片段
+├── src/modules/ai/            # 多腦模型角色常數（預留）
+├── src/modules/security/      # Llama Guard 類資安占位（stub）
 ├── package.json
 ├── tsconfig.json
 ├── Dockerfile
