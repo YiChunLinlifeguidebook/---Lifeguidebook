@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "collect": "npm run build && node dist/cli/collect-sample.js"
+    "collect": "npm run build && node dist/cli/collect-sample.js",
+    "ingest-batch": "npm run build && node dist/cli/ingest-batch.js"
   },
   "dependencies": {
     "@line/bot-sdk": "^9.5.0",
