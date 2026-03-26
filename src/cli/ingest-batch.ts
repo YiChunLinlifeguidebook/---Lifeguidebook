@@ -8,7 +8,7 @@ import * as fsp from 'node:fs/promises';
 import * as path from 'node:path';
 import { createConsoleLogger } from '../modules/logger';
 import { fetchBaiduLemma, fetchWikipediaSummary } from '../modules/collectors';
-import { sanitizeForExternalPayload } from '../modules/export';
+import { sanitizeForDownstream } from '../modules/export';
 
 const log = createConsoleLogger('ingest-batch');
 
@@ -28,7 +28,7 @@ async function main() {
 
   if ((!wiki && !baidu) || fileIdx === -1 || !args[fileIdx + 1] || outIdx === -1 || !args[outIdx + 1]) {
     console.error(
-      'Usage: npm run ingest-batch -- --wiki|--baidu --file queries.txt --out out/data.jsonl [--sanitize]'
+      'Usage: npm run ingest-batch -- --wiki|--baidu --file queries.txt --out out/data.jsonl [--sanitize] (PII + path/token)'
     );
     process.exit(1);
   }
@@ -52,8 +52,9 @@ async function main() {
         const outRec = sanitize
           ? {
               ...rec,
-              title: sanitizeForExternalPayload(rec.title),
-              body: sanitizeForExternalPayload(rec.body),
+              title: sanitizeForDownstream(rec.title),
+              body: sanitizeForDownstream(rec.body),
+              raw: {},
             }
           : rec;
         stream.write(JSON.stringify(outRec) + '\n');

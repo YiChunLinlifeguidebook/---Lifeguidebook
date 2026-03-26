@@ -39,6 +39,7 @@
 - **本機開發放寬 Guard stub**（非繞過雲端安全）：`source ./scripts/dev-unlock.sh`，或 `.env` 設 `DEV_RELAXED_MODE=1`
 - **批次養分**（每行一關鍵字 → JSON Lines）：`npm run ingest-batch -- --wiki --file queries.txt --out out/wiki.jsonl`（可加 `--sanitize`）
 - 政策說明：`docs/internal-external-policy.md`
+- **脫敏與編號**：`docs/data-anonymization.md`；模組 `src/modules/privacy/`（UUID／HMAC 假名、PII 洗滌、`AnonymizedEventRecord`）
 
 百科 API 可能隨供應商變更；若百度百科回傳失敗，請檢查網路或稍後再試。
 
