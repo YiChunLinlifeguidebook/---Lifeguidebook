@@ -1,0 +1,13 @@
+{
+  "chunStandard": "V1.0",
+  "revision": "CS-20250326-001",
+  "date": "20250326",
+  "cursorProjectMcp": ".cursor/mcp.json",
+  "schema": "Model Context Protocol — mcpServers object",
+  "lockRules": [
+    "Do not commit secrets or tokens; use environment variables or OS keychain.",
+    "Bump revision (CS-YYYYMMDD-nnn) when changing server list or trust boundaries.",
+    "Mirror this lock file when updating .cursor/mcp.json for audit trail."
+  ],
+  "mcpServers": {}
+}

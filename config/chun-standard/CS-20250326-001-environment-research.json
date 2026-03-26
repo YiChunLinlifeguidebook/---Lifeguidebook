@@ -1,0 +1,43 @@
+{
+  "standard": "Chun-Standard V1.0",
+  "revision": "CS-20250326-001",
+  "date": "20250326",
+  "fiveTrackParallel": {
+    "T1_infra": "Termux API/X11, Shizuku/Dhizuku, device bridge",
+    "T2_cloud": "Firebase Studio, GitHub remote index, CI",
+    "T3_editor": "VS Code/Cursor, extensions, MCP",
+    "T4_data": "M365 digest pool, Obsidian logic relay (env paths)",
+    "T5_delivery": "Git relay push, dated artifacts, lock files"
+  },
+  "research": {
+    "termux": {
+      "api": "Install termux-api package and Termux:API app; grant battery optimization exceptions for background hooks.",
+      "x11": "Use termux-x11 or VNC; set DISPLAY; optional proot/chroot for GUI toolchains — verify on device, not in this Linux CI workspace."
+    },
+    "shizuku_dhizuku": {
+      "shizuku": "ADB-over-app debugging bridge; pair/wireless debugging; grant shell permissions to companion apps.",
+      "dhizuku": "Device-owner style delegation for enterprise/multi-user scenarios; pair with relay scripts on a trusted host."
+    },
+    "firebase_studio": {
+      "note": "Cloud IDE; align repo with Firebase project in console; use Firebase CLI locally where Studio lacks shell — secrets stay in env/CI, not committed."
+    }
+  },
+  "extensionInstall": {
+    "method": "Open this folder in VS Code/Cursor; run 'Extensions: Show Recommended Extensions' and install workspace recommendations.",
+    "ids": [
+      "ms-python.python",
+      "ms-python.debugpy",
+      "ms-azuretools.vscode-docker",
+      "eamodio.gitlens",
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "ms-vscode-remote.remote-ssh"
+    ]
+  },
+  "envVarsForPathMapping": {
+    "CHUN_M365_DIGEST_POOL": "Absolute path to Microsoft 365 export / digest staging folder (OneDrive sync or local mirror).",
+    "CHUN_OBSIDIAN_LOGIC_RELAY": "Absolute path to Obsidian vault relay folder for structured notes/metadata handoff.",
+    "CHUN_RELAY_REMOTE": "Optional git remote name for relay push task (default: origin).",
+    "CHUN_RELAY_BRANCH": "Optional branch override for relay push task (default: current branch)."
+  }
+}
