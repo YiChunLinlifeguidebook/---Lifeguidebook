@@ -1,0 +1,10 @@
+.git
+.gitignore
+README.md
+LICENSE
+docker-compose.yml
+Dockerfile
+Dockerfile.bot
+node_modules
+.env
+.env.*

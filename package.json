@@ -1,0 +1,21 @@
+{
+  "name": "lifeguidebook-line-bot",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "collect": "npm run build && node dist/cli/collect-sample.js",
+    "ingest-batch": "npm run build && node dist/cli/ingest-batch.js"
+  },
+  "dependencies": {
+    "@line/bot-sdk": "^9.5.0",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}
