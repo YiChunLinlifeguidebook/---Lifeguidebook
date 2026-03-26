@@ -1,32 +1,25 @@
 import * as line from '@line/bot-sdk';
 import express, { Request, Response } from 'express';
 
-const channelAccessToken = process.env.LINE_CHANNEL_ACCESS_TOKEN ?? '';
-const channelSecret = process.env.LINE_CHANNEL_SECRET ?? '';
+// 1. 設定憑證（從小西建好的 .env 讀取）
+const config: line.Config = {
+  channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN || '',
+  channelSecret: process.env.LINE_CHANNEL_SECRET || '',
+};
 
-if (!channelAccessToken || !channelSecret) {
+if (!config.channelAccessToken || !config.channelSecret) {
   console.error(
     'Missing LINE_CHANNEL_ACCESS_TOKEN or LINE_CHANNEL_SECRET. Copy .env.example to .env and fill in values.'
   );
   process.exit(1);
 }
 
-// 1. 設定憑證（從 .env 讀取）
-const clientConfig: line.ClientConfig = {
-  channelAccessToken,
-  channelSecret,
-};
-
-const middlewareConfig: line.MiddlewareConfig = {
-  channelSecret,
-};
-
 // 2. 建立 LINE 客戶端
-const client = new line.Client(clientConfig);
+const client = new line.Client(config as line.ClientConfig);
 const app = express();
 
-// 3. Webhook 接收點（LINE middleware 會自行解析 raw body，勿在先前掛 express.json）
-app.post('/callback', line.middleware(middlewareConfig), (req: Request, res: Response) => {
+// 3. Webhook 接收點（勿在先前掛 express.json，以免破壞簽章驗證）
+app.post('/callback', line.middleware(config as line.MiddlewareConfig), (req: Request, res: Response) => {
   Promise.all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
     .catch((err) => {
@@ -55,7 +48,7 @@ async function handleEvent(event: line.WebhookEvent) {
 }
 
 // 5. 啟動伺服器
-const port = Number(process.env.PORT) || 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`LINE Bot 正在 Port ${port} 運作中...`);
 });
