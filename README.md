@@ -36,6 +36,9 @@
 - **日誌**：`UniversalLogger`（`src/modules/logger`），LINE 服務已改用 `createConsoleLogger('line-bot')`。
 - **採集範例**（需網路）：`npm run collect -- --wiki Taiwan` 或 `npm run collect -- --baidu 人工智能`
 - **一鍵部署**（需 Docker 與 `.env`）：`./scripts/deploy-xiaoc.sh`
+- **本機開發放寬 Guard stub**（非繞過雲端安全）：`source ./scripts/dev-unlock.sh`，或 `.env` 設 `DEV_RELAXED_MODE=1`
+- **批次養分**（每行一關鍵字 → JSON Lines）：`npm run ingest-batch -- --wiki --file queries.txt --out out/wiki.jsonl`（可加 `--sanitize`）
+- 政策說明：`docs/internal-external-policy.md`
 
 百科 API 可能隨供應商變更；若百度百科回傳失敗，請檢查網路或稍後再試。
 
