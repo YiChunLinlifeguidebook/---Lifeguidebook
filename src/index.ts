@@ -1,5 +1,8 @@
 import * as line from '@line/bot-sdk';
 import express, { Request, Response } from 'express';
+import { createConsoleLogger } from './modules/logger';
+
+const log = createConsoleLogger('line-bot');
 
 // 1. 設定憑證（從小西建好的 .env 讀取）
 const config: line.Config = {
@@ -8,7 +11,7 @@ const config: line.Config = {
 };
 
 if (!config.channelAccessToken || !config.channelSecret) {
-  console.error(
+  log.error(
     'Missing LINE_CHANNEL_ACCESS_TOKEN or LINE_CHANNEL_SECRET. Copy .env.example to .env and fill in values.'
   );
   process.exit(1);
@@ -23,7 +26,7 @@ app.post('/callback', line.middleware(config as line.MiddlewareConfig), (req: Re
   Promise.all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
     .catch((err) => {
-      console.error(err);
+      log.error('callback.handler_failed', { err: String(err) });
       res.status(500).end();
     });
 });
@@ -50,5 +53,5 @@ async function handleEvent(event: line.WebhookEvent) {
 // 5. 啟動伺服器
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`LINE Bot 正在 Port ${port} 運作中...`);
+  log.info(`LINE Bot 正在 Port ${port} 運作中...`);
 });

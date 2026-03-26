@@ -12,15 +12,28 @@
 ```
 ├── index.html      # 產品官網
 ├── styles.css
-├── src/index.ts    # LINE Bot（TypeScript + Express + /callback）
+├── src/index.ts    # LINE Bot（Express + /callback）
+├── src/modules/logger/   # UniversalLogger 介面與 console 實作
+├── src/modules/unified/  # UnifiedRecord 跨域資料形狀
+├── src/modules/collectors/  # Wikipedia / 百度百科採集器
+├── src/cli/collect-sample.ts  # 採集 CLI 範例
+├── scripts/deploy-xiaoc.sh    # 一鍵 Docker 建置與啟動
 ├── package.json
 ├── tsconfig.json
-├── Dockerfile      # 靜態網站（nginx）
-├── Dockerfile.bot  # LINE Bot（多階段建置、執行 dist/index.js）
+├── Dockerfile
+├── Dockerfile.bot
 ├── docker-compose.yml
 ├── .env.example
 └── README.md
 ```
+
+### 小 C 模組：跨域採集與一鍵部署
+
+- **日誌**：`UniversalLogger`（`src/modules/logger`），LINE 服務已改用 `createConsoleLogger('line-bot')`。
+- **採集範例**（需網路）：`npm run collect -- --wiki Taiwan` 或 `npm run collect -- --baidu 人工智能`
+- **一鍵部署**（需 Docker 與 `.env`）：`./scripts/deploy-xiaoc.sh`
+
+百科 API 可能隨供應商變更；若百度百科回傳失敗，請檢查網路或稍後再試。
 
 ---
 
