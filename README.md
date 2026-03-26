@@ -10,12 +10,15 @@
 ## 📁 檔案結構
 
 ```
-├── index.html   # 主頁面（Hero、功能介紹、下載區塊）
-├── styles.css   # 全站樣式
-├── Dockerfile   # 以 nginx 提供靜態檔（可選：VPS / 自架主機）
+├── index.html      # 產品官網
+├── styles.css
+├── index.js        # LINE Bot（Express + /callback）
+├── package.json
+├── Dockerfile      # 靜態網站（nginx）
+├── Dockerfile.bot  # LINE Bot（Node 20）
 ├── docker-compose.yml
-├── .env.example # LINE 憑證變數名稱範本（勿填入真值後提交）
-└── README.md    # 本文件
+├── .env.example
+└── README.md
 ```
 
 ---
@@ -33,19 +36,34 @@
    - **Channel access token**（長期）→ `LINE_CHANNEL_ACCESS_TOKEN`
 3. 若憑證遺失，請到 [LINE Developers Console](https://developers.line.biz/) → 你的 **Messaging API** Channel → **Messaging API** 分頁重新發行 **Channel access token**，並確認 **Channel secret** 與 Webhook 設定。
 
-之後當 LINE Bot 服務整合進 Docker 時，會以 `env_file: .env` 等方式讀取上述變數（實作時請勿把密鑰寫進程式碼或映像檔）。
+Compose 服務 **bot** 會讀取專案根目錄的 `.env`（請勿把密鑰寫進程式碼或映像檔）。
+
+### LINE Webhook
+
+在 LINE Developers → **Messaging API** → **Webhook URL** 設為：
+
+`https://你的網域或伺服器/callback`
+
+（需 HTTPS 且可從網際網路連到埠 **3000** 對應的路由；本機測試可用 [ngrok](https://ngrok.com/) 等工具轉發。）
 
 ---
 
 ## 🖥️ VPS（Docker）部署
 
-若要在自有伺服器上以容器執行：
+先準備 `.env`（見上），再在專案根目錄執行：
 
 ```bash
 docker compose up -d --build
 ```
 
-預設會將網站對外於 **http://伺服器IP:8080**（可在 `docker-compose.yml` 修改對應埠）。
+- 靜態網站：**http://伺服器IP:8080**
+- LINE Bot：**http://伺服器IP:3000**（對外 Webhook 請用 HTTPS 反代到此埠的 `/callback`）
+
+只跑 Bot、不要官網時：
+
+```bash
+docker compose up -d --build bot
+```
 
 ---
 

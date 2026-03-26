@@ -1,10 +1,19 @@
-# LINE Bot 服務若需讀取憑證，可在該服務下加入：
-#   env_file: .env
-# 並確保專案根目錄有從 .env.example 複製並填好的 .env（勿提交 Git）。
+# 複製 .env.example 為 .env 並填入 LINE 憑證後再啟動 bot。
 
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8080:80"
+    restart: unless-stopped
+
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile.bot
+    env_file: .env
+    ports:
+      - "3000:3000"
     restart: unless-stopped
