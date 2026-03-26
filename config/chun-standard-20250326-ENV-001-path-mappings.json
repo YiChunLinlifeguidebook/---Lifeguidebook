@@ -1,0 +1,21 @@
+{
+  "id": "20250326-ENV-001",
+  "title": "Chun-Standard — Microsoft 365 數據消化池 ↔ Obsidian 邏輯庫 中繼路徑",
+  "mappings": [
+    {
+      "tag": "M365-DIGEST",
+      "envVar": "CHUN_M365_DIGEST_ROOT",
+      "description": "Microsoft 365 匯出／同步資料夾（請設為本機絕對路徑）",
+      "exampleUnix": "/path/to/M365-Digest-Pool",
+      "exampleWindows": "C:\\\\Users\\\\you\\\\M365-Digest-Pool"
+    },
+    {
+      "tag": "OBSIDIAN-RELAY",
+      "envVar": "CHUN_OBSIDIAN_RELAY_ROOT",
+      "description": "Obsidian 邏輯庫與工作區之間的中繼／同步資料夾",
+      "exampleUnix": "/path/to/Obsidian-Relay",
+      "exampleWindows": "C:\\\\Users\\\\you\\\\Obsidian-Relay"
+    }
+  ],
+  "vscodeNote": "已在 .vscode/settings.json 透過 github.copilot.chat.additionalReadAccessFolders 綁定上述環境變數；未設定時該項為空路徑，不影響編輯。"
+}

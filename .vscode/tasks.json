@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Git 轉接站 (Relay Repo) — Push [20250326-ENV-001]",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "set -euo pipefail; RELAY_FILE=\"${WORKSPACE_FOLDER}/.env.relay\"; if [ -f \"$RELAY_FILE\" ]; then set -a; . \"$RELAY_FILE\"; set +a; fi; REMOTE=\"${RELAY_REMOTE:-origin}\"; BRANCH=\"${RELAY_BRANCH:-$(git rev-parse --abbrev-ref HEAD)}\"; echo \"[20250326-ENV-001] Pushing to relay: $REMOTE $BRANCH\"; git push -u \"$REMOTE\" \"$BRANCH\""
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "WORKSPACE_FOLDER": "${workspaceFolder}"
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

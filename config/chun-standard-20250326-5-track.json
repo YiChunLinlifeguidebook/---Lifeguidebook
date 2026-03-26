@@ -1,0 +1,32 @@
+{
+  "id": "20250326-ENV-001",
+  "title": "五線並行開發 (5-Track) — 夢想引擎",
+  "standard": "Chun-Standard V1.0",
+  "tracks": [
+    {
+      "trackId": "T1",
+      "name": "產品／靜態站與部署",
+      "scope": "HTML/CSS、Cloudflare Pages、公開內容"
+    },
+    {
+      "trackId": "T2",
+      "name": "工具鏈與工作區",
+      "scope": "VS Code、ESLint/Prettier、Python venv、Docker、Remote-SSH"
+    },
+    {
+      "trackId": "T3",
+      "name": "版本與轉接",
+      "scope": "Git、Relay 遠端、自動儲存與提交節奏"
+    },
+    {
+      "trackId": "T4",
+      "name": "知識與資料流",
+      "scope": "M365 消化池、Obsidian 中繼、Copilot 額外唯讀路徑"
+    },
+    {
+      "trackId": "T5",
+      "name": "代理與 MCP",
+      "scope": "MCP 伺服器、Chat 工具、索引與程式庫搜尋"
+    }
+  ]
+}

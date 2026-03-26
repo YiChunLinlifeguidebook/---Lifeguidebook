@@ -1,0 +1,53 @@
+{
+  "// Chun-Standard V1.0": "20250326-ENV-001 — 夢想引擎工作區",
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 800,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.terminal.activateEnvironment": true,
+  "remote.SSH.enableDynamicForwarding": true,
+  "remote.SSH.useLocalServer": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": true
+  },
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.edits.suggestRelatedFilesFromGitHistory": true,
+  "github.copilot.chat.organizationInstructions.enabled": true,
+  "github.copilot.chat.organizationCustomAgents.enabled": true,
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "chat.useNestedAgentsMdFiles": true,
+  "chat.useCustomizationsInParentRepositories": true,
+  "search.searchView.semanticSearchBehavior": "always",
+  "github.copilot.chat.additionalReadAccessFolders": [
+    "${env:CHUN_M365_DIGEST_ROOT}",
+    "${env:CHUN_OBSIDIAN_RELAY_ROOT}"
+  ],
+  "chat.mcp.discovery.enabled": true,
+  "chat.mcp.autoStart": "newAndOutdated"
+}

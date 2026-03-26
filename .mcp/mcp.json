@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/mcp.json",
+  "// Chun-Standard V1.0": "20250326-ENV-001 — MCP 邏輯鎖定範本（於本機或 CI 填入 secrets）",
+  "mcpServers": {
+    "filesystem-dream-engine": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "${workspaceFolder}"
+      ]
+    }
+  }
+}

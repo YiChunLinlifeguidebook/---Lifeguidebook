@@ -1,0 +1,10 @@
+{
+  "id": "20250326-ENV-001",
+  "title": "環境參考摘要（Termux / Shizuku / Firebase Studio）",
+  "notes": [
+    "Termux：Android 上透過 pkg 安裝 openssh、git、python 等；需配合 Termux:API 做通知／剪貼簿等；圖形介面可透過 VNC 或 X11（如 termux-x11）在支援的裝置上運行。",
+    "Shizuku／Dhizuku：以 adb／無 root 或裝置管理員模式授權給需要較高權限的 Android 工具；Dhizuku 為裝置擁有者情境下的延伸，實際啟用方式依 ROM／企業政策而異。",
+    "Firebase Studio：以雲端／瀏覽器為主的開發體驗，與本機 VS Code 並行時，建議以同一 Git 遠端與此 repo 的 .vscode、.mcp 設定對齊流程。"
+  ],
+  "repoAlignment": "本儲存庫已提交 workspace 建議擴充、tasks、MCP 範本與路徑對應 JSON，供本機 Cursor/VS Code 與雲端編輯器共用。"
+}
